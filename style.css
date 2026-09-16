@@ -5,7 +5,8 @@
 :root {
   --ink: #111;
   --paper: #fff;
-  --concrete: #d5d4d0;
+  /* 上纹理前的板色，纹理压下去之后观感约等于 #b5b4b0 */
+  --concrete: #e9e8e4;
   --wash: rgba(17, 17, 17, .07);
   --font-display: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", SimHei, sans-serif;
   --font-body: "Noto Serif SC", "Source Han Serif SC", "Songti SC", SimSun, serif;
@@ -47,10 +48,10 @@ body::after {
   inset: 0;
   z-index: 9;
   pointer-events: none;
-  opacity: .30;
+  opacity: .45;
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='128' height='128'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='128' height='128' filter='url(%23g)'/></svg>");
-  background-size: 128px 128px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='256' height='256'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='256' height='256' filter='url(%23g)'/></svg>");
+  background-size: 256px 256px;
 }
 
 a {

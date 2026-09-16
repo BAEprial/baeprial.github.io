@@ -121,6 +121,7 @@ a:focus-visible {
   text-align: left;
   opacity: 0;
   visibility: hidden;
+  transition: opacity .15s ease-out, visibility 0s linear .15s;
 }
 
 .bubble::before {
@@ -147,6 +148,15 @@ a:focus-visible {
 .me:focus-within .bubble {
   opacity: 1;
   visibility: visible;
+  transition: opacity .15s ease-out, visibility 0s linear 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble,
+  .me:hover .bubble,
+  .me:focus-within .bubble {
+    transition: none;
+  }
 }
 
 /* 站名 */

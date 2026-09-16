@@ -161,9 +161,56 @@ a:focus-visible {
   }
 }
 
-/* 站名 */
-.masthead {
-  padding: 2.25rem 0 2rem;
+/* 顶部横幅 */
+.banner {
+  position: relative;
+  margin: 1.25rem -1.5rem 2.75rem;
+  overflow: hidden;
+}
+
+.banner img {
+  display: block;
+  width: 100%;
+  height: clamp(190px, 24vw, 400px);
+  object-fit: cover;
+  object-position: 50% 38%;
+}
+
+/* 蒙一层混凝土灰，让黑字压得住，也把照片并进全站色系 */
+.banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(213, 212, 208, .26), rgba(213, 212, 208, .50));
+}
+
+.banner .site-name {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: .4rem;
+  z-index: 2;
+  margin: 0;
+  font-size: clamp(2.6rem, 11vw, 7rem);
+  line-height: 1;
+}
+
+/* 字的上半截实心，往下逐渐透明，露出后面的混凝土 */
+.banner .site-name a {
+  display: block;
+  background-image: linear-gradient(180deg, #111 0%, #111 42%, rgba(17, 17, 17, .42) 72%, rgba(17, 17, 17, .06) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  text-decoration: none;
+}
+
+.banner .site-name a:hover,
+.banner .site-name a:focus-visible {
+  background-image: linear-gradient(180deg, #111 0%, #111 100%);
 }
 
 .site-name {
@@ -430,8 +477,17 @@ code {
     padding: 0 1rem 4rem;
   }
 
-  .masthead {
-    padding: 2.25rem 0 1.75rem;
+  .banner {
+    margin: 1rem -1rem 2rem;
+  }
+
+  .banner img {
+    height: clamp(170px, 40vw, 260px);
+  }
+
+  .banner .site-name {
+    left: 1rem;
+    right: 1rem;
   }
 
   .post-list li {
